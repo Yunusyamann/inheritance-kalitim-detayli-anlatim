@@ -1,40 +1,43 @@
 #include <iostream>
 using namespace std;
-
-// Temel (Base) Sınıf
-class Sekil {
+//temel (base ) sınıf
+class sekil {
 protected:
     int genislik;
     int yukseklik;
-
 public:
     void setBoyut(int w, int h) {
         genislik = w;
         yukseklik = h;
-    }
 
-    void bilgiYazdir() {
-        cout << "Genislik: " << genislik << endl;
-        cout << "Yukseklik: " << yukseklik << endl;
+    }
+    void bilgiyazdir() {
+        cout << "Genislik:" << genislik << endl;
+        cout << "Yukseklik" << yukseklik << endl;
+
     }
 };
-
-// Türetilmiş (Derived) Sınıf
-class Dikdortgen : public Sekil {
+//Türetilmiş (delivered) sınıf.
+class dikdortgen : public sekil {
 public:
-    int alanHesapla() {
+    int alanhesapla() {
         return genislik * yukseklik;
+
     }
 };
+int main()
+{
+    dikdortgen dikdortgen1;
+    int genis, yuksek;  //cin işlemleri için oluşturulmuş parametreler
+    cout << "Genisligi giriniz:" << endl;
+    cin >> genis;
+    cout << "Yuksekligi giriniz: " << endl;
+    cin >> yuksek;
 
-int main() {
-    Dikdortgen dikdortgen;
+    dikdortgen1.setBoyut(genis, yuksek);
+    int alan=dikdortgen1.alanhesapla();
+    dikdortgen1.bilgiyazdir();
 
-    dikdortgen.setBoyut(5, 3);
-    dikdortgen.bilgiYazdir();
-
-    int alan = dikdortgen.alanHesapla();
     cout << "Alan: " << alan << endl;
-
-    return 0;
 }
+
